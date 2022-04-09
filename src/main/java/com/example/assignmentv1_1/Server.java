@@ -75,14 +75,14 @@ public class Server {
             }else if(OP=='2'){//Operation Update requested
 
                 char div=Operation.charAt(Operation.indexOf("-")+2);
-                String ToUpdate=Operation.substring(Operation.indexOf("OP")+5,div);
+                String ToUpdate=Operation.substring(Operation.indexOf("OP")+5,div); //Sample: OP2: Cat-meow meow meow
                 String NewMeaning=Operation.substring(div+1);
                 outcome = SearchWord.UpdateAWord(ToUpdate,NewMeaning);
 
             }else if(OP=='3'){//Add operation requested
 
                 char div=Operation.charAt(Operation.indexOf("-")+2);
-                String ToAdd=Operation.substring(Operation.indexOf("OP")+5,div);
+                String ToAdd=Operation.substring(Operation.indexOf("OP")+5,div);//Sample: OP3: Poop-Number2
                 String NewMeaning=Operation.substring(div+1);
                 outcome = SearchWord.AddAWord(ToAdd,NewMeaning);
             }
