@@ -95,16 +95,6 @@ public class UpdateOrAddDialog extends JDialog {
             }
 
 
-            while(true)
-            {
-                if(input.available()>0) {
-                    String message = input.readUTF();
-                    FromServer.setText(message);
-                    System.out.println(message);
-                    break;
-                }
-            }
-
         }
         catch (UnknownHostException e)
         {
@@ -118,7 +108,7 @@ public class UpdateOrAddDialog extends JDialog {
 
 
 
-        dispose();
+        //dispose();
     }
 
     private void onCancel() {

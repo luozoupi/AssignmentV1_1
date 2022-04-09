@@ -49,11 +49,15 @@ public class STest {
                     OpIndex=0;
                     System.out.println("Given OP = Search");
                     SearchOrRemoveDialog D1=new SearchOrRemoveDialog(OpIndex);
+                    D1.setSize(400,250);
+                    D1.setVisible(true);
 
                 } else if(Op=="Remove"){
                     OpIndex=1;
                     System.out.println("Given OP = Remove");
                     SearchOrRemoveDialog D2=new SearchOrRemoveDialog(OpIndex);
+                    D2.setSize(400,250);
+                    D2.setVisible(true);
 
                 }
                 else if(Op=="Update"){
@@ -68,7 +72,8 @@ public class STest {
                     OpIndex=3;
                     System.out.println("Given OP = Add");
                     UpdateOrAddDialog D4=new UpdateOrAddDialog(OpIndex);
-
+                    D4.setSize(400,250);
+                    D4.setVisible(true);
                 }
             }
         });

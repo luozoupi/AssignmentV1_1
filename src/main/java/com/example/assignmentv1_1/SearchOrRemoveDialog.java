@@ -100,7 +100,7 @@ public class SearchOrRemoveDialog extends JDialog {
 
 
 
-        dispose();
+       // dispose();
     }
 
     private void onCancel() {
