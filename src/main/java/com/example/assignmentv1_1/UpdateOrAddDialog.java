@@ -131,6 +131,6 @@ public class UpdateOrAddDialog extends JDialog {
         UpdateOrAddDialog dialog = new UpdateOrAddDialog();
         dialog.pack();
         dialog.setVisible(true);
-        System.exit(0);
+       System.exit(0);
     }
 }
