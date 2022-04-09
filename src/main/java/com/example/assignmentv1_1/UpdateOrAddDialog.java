@@ -17,7 +17,47 @@ public class UpdateOrAddDialog extends JDialog {
     private static String ip = "localhost";
     private static int port = 3005;
 
-    public UpdateOrAddDialog(int OP) {
+    public UpdateOrAddDialog(int OP, int Port, String address) { //Constructor with port and address
+        setContentPane(contentPane);
+        setModal(true);
+        getRootPane().setDefaultButton(buttonOK);
+
+        buttonOK.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                onOK(OP);
+            }
+        });
+
+        buttonCancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onCancel();
+            }
+        });
+
+        // 点击 X 时调用 onCancel()
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                onCancel();
+            }
+        });
+
+        // 遇到 ESCAPE 时调用 onCancel()
+        contentPane.registerKeyboardAction(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onCancel();
+            }
+        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        buttonOK.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+
+    public UpdateOrAddDialog(int OP) {//Constructor function without port and address designated
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -80,7 +120,7 @@ public class UpdateOrAddDialog extends JDialog {
             String sendData =op+wd+mn;
 
             output.writeUTF(sendData);
-            System.out.println("Data sent to Server--> " + sendData);
+            System.out.println("Data sent to DictionaryServer--> " + sendData);
             output.flush();
 
             boolean flag=true;

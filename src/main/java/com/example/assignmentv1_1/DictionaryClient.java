@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class STest {
+public class DictionaryClient {
     private JButton button1;
     private JComboBox<String> OPlist;
     private JPanel TestForm;
@@ -12,8 +12,11 @@ public class STest {
     private JPanel PanelForTextIn;
     private JPanel ForButton;
     private JLabel Label1;
+    public static int Port=3005;
+    static String Ip = "localhost" ;
+
     public int OpIndex=0;
-    public STest() {
+    public DictionaryClient() {
 
 //        button1.addActionListener(new ActionListener() {
 //           @Override
@@ -90,8 +93,13 @@ public class STest {
 //    }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("STest");
-        frame.setContentPane(new STest().TestForm);
+        if(args[0]!=null && args[1]!=null){
+            Ip = args[0];
+            Port = Integer.parseInt(args[1]);
+        }
+
+        JFrame frame = new JFrame("DictionaryClient");
+        frame.setContentPane(new DictionaryClient().TestForm);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

@@ -3,13 +3,12 @@ package com.example.assignmentv1_1;
 import javax.net.ServerSocketFactory;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.FilePermission;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
-    static String Filepath="E:\\courses\\Melb\\Distributed system\\assignments\\A1\\AssignmentV1_1\\src\\dict.txt";
+public class DictionaryServer {
+    static String Filepath=".\\dict.txt";
     // Declare the port number
     private static int port = 3005;
 
@@ -17,7 +16,10 @@ public class Server {
     private static int counter = 0;
 
     public static void main(String[] args)
-    {
+    {   if(args[0] !=null && args[1]!=null) {
+        port = Integer.parseInt(args[0]);
+        Filepath = args[1];
+        }
         ServerSocketFactory factory = ServerSocketFactory.getDefault();
 
         try(ServerSocket server = factory.createServerSocket(port))
@@ -90,7 +92,7 @@ public class Server {
                 outcome = SearchWord.AddAWord(ToAdd,NewMeaning);
             }
 
-            //output.writeUTF("Server: Hi Client "+counter+" !!!");
+            //output.writeUTF("DictionaryServer: Hi Client "+counter+" !!!");
             output.writeUTF(outcome);
             System.out.println("The outcome: "+outcome+" has been sent back to the client!");
         }

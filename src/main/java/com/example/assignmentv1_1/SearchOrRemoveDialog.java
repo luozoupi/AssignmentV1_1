@@ -73,7 +73,7 @@ public class SearchOrRemoveDialog extends JDialog {
                 String sendData =op+wd;
 
                 output.writeUTF(sendData);
-                System.out.println("Data sent to Server--> " + sendData);
+                System.out.println("Data sent to DictionaryServer--> " + sendData);
                 output.flush();
                 buttonOK.getDisabledIcon();
                 boolean flag=true;

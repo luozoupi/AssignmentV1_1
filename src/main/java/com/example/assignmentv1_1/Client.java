@@ -25,7 +25,7 @@ public class Client {
             String sendData="OP0: Cat"; //0 Search 1 Remove 2 Update 3 add
 
             output.writeUTF(sendData);
-            System.out.println("Data sent to Server--> " + sendData);
+            System.out.println("Data sent to DictionaryServer--> " + sendData);
             output.flush();
 
             boolean flag=true;

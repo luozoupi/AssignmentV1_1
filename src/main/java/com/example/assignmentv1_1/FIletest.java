@@ -6,8 +6,8 @@ import java.io.FileWriter;
 
 public class FIletest {
     public static void main(String[] args) {
-        String Filepath="E:\\courses\\Melb\\Distributed system\\assignments\\A1\\AssignmentV1_1\\src\\dict.txt";
-        File dict=new File("E:\\courses\\Melb\\Distributed system\\assignments\\A1\\AssignmentV1_1\\src\\dict.txt");
+        String Filepath=".\\dict.txt";
+        File dict=new File(Filepath);
         //Create a file in the src folder of the project
         String encoding = "UTF-8"; //Default coding
         try {
