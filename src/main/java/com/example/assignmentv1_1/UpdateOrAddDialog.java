@@ -70,10 +70,10 @@ public class UpdateOrAddDialog extends JDialog {
 
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
             String op=null;
-            if(OP==0){
-                op="OP0: ";
-            }else if(OP==1){
-                op="OP1: ";
+            if(OP==2){
+                op="OP2: ";
+            }else if(OP==3){
+                op="OP3: ";
             }//
             String wd=TFWord.getText();
             String mn="-"+TFMeaning.getText();
@@ -131,6 +131,6 @@ public class UpdateOrAddDialog extends JDialog {
         UpdateOrAddDialog dialog = new UpdateOrAddDialog();
         dialog.pack();
         dialog.setVisible(true);
-       System.exit(0);
+        System.exit(0);
     }
 }

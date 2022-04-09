@@ -14,6 +14,7 @@ public class STest {
     private JLabel Label1;
     public int OpIndex=0;
     public STest() {
+
 //        button1.addActionListener(new ActionListener() {
 //           @Override
 //            public void actionPerformed(ActionEvent e) {
@@ -59,6 +60,8 @@ public class STest {
                     OpIndex=2;
                     System.out.println("Given OP = Update");
                     UpdateOrAddDialog D3=new UpdateOrAddDialog(OpIndex);
+                    D3.setSize(400,250);
+                    D3.setVisible(true);
 
                 }
                 else if(Op=="Add"){

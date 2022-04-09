@@ -74,9 +74,12 @@ public class Server {
 
             }else if(OP=='2'){//Operation Update requested
 
-                char div=Operation.charAt(Operation.indexOf("-")+2);
-                String ToUpdate=Operation.substring(Operation.indexOf("OP")+5,div); //Sample: OP2: Cat-meow meow meow
-                String NewMeaning=Operation.substring(div+1);
+                //char div=Operation.charAt(Operation.indexOf("-")+2);
+                System.out.println("div at: "+Operation.indexOf("-"));
+                String ToUpdate=Operation.substring(Operation.indexOf("OP")+5,Operation.indexOf("-")); //Sample: OP2: Cat-meow meow meow
+                System.out.println("Toupdate: "+ToUpdate);
+                String NewMeaning=Operation.substring(Operation.indexOf("-")+1);
+                System.out.println("Newmeaning: "+NewMeaning);
                 outcome = SearchWord.UpdateAWord(ToUpdate,NewMeaning);
 
             }else if(OP=='3'){//Add operation requested
@@ -89,6 +92,7 @@ public class Server {
 
             //output.writeUTF("Server: Hi Client "+counter+" !!!");
             output.writeUTF(outcome);
+            System.out.println("The outcome: "+outcome+" has been sent back to the client!");
         }
         catch (IOException e)
         {
