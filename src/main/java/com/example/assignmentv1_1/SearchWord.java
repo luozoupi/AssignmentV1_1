@@ -25,7 +25,7 @@ public class SearchWord {
                         String Meaning = rl.substring(wd.length());//Extract the meaning out of the read line.
                         System.out.println("Its meaning includes:"+Meaning);//Show the meaning of the searched word
                         flag = true;
-                        return "Congrats! Your order is done!";
+                        return ("Congratulations! The word you search exists! Its meaning: "+Meaning);
 
 
                     }
@@ -49,7 +49,7 @@ public class SearchWord {
     public static String AddAWord(String wd, String Meaning) {
         try {
             String encoding = "UTF-8";
-
+            String outcome = null;
             File file=new File(filepath);
 
             if(file.isFile() && file.exists()) {
@@ -66,6 +66,7 @@ public class SearchWord {
                 while((rl = bufferedReader.readLine())!=null) {
                     if(rl.indexOf(wd)!=-1) {
                         System.out.println("Sorry, the word already exists!\n");
+                        outcome="Sorry, the word already exists!\n";
                         flag = true;
                         wl=wl+rl;
                         bf.append(wl+"\r\n");
@@ -75,6 +76,7 @@ public class SearchWord {
 
                 if(!flag) {
                     System.out.println("Congratulations! You can add it to the dictionary!\n");
+                    outcome = "Congratulations! You can add it to the dictionary!\n";
                     bf.append(wl+wd+" "+Meaning+"\r\n");
                     FileWriter out =new FileWriter(file,true);
                     out.write(bf.toString());
@@ -83,13 +85,13 @@ public class SearchWord {
                 }
 
             }
-
+            return outcome;
         } catch(Exception e) {
             System.out.println("Your operation goes wrong!");
             e.printStackTrace();
             return ("Your operation goes wrong!\r\n");
         }
-        return "Added a word successfully! You can check the dictionary now. \r\n";
+
     }
     public static String RemoveAWord(String wd) {
         String str=null;
