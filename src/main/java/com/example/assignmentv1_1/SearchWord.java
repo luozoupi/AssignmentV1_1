@@ -25,7 +25,7 @@ public class SearchWord {
                         String Meaning = rl.substring(wd.length());//Extract the meaning out of the read line.
                         System.out.println("Its meaning includes:"+Meaning);//Show the meaning of the searched word
                         flag = true;
-                        return ("Congratulations! The word you search exists! Its meaning: "+Meaning);
+                        return ("Congratulations! The word " +wd+" you search exists! Its meaning: "+Meaning);
 
 
                     }
@@ -129,11 +129,12 @@ public class SearchWord {
                 out.flush();
                 out.close();
 
-                str="Successfully removed a word, you can check the dictionary.";
+                str="Successfully removed the word " + wd+ ", you can check the dictionary.";
 
                 if(!flag) {
                     System.out.println("Sorry, the word doesn't exist so can't be deleted!");
                     str="Sorry, the word doesn't exist so can't be deleted!";
+                    return str;
                 }
             }return str;
 

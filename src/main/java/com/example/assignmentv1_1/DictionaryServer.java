@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class DictionaryServer {
-    static String Filepath=".\\dict.txt";
+    static String Filepath=".\\src\\dict.txt";
     // Declare the port number
     private static int port = 3005;
 
@@ -16,10 +16,12 @@ public class DictionaryServer {
     private static int counter = 0;
 
     public static void main(String[] args)
-    {   if(args[0] !=null && args[1]!=null) {
-        port = Integer.parseInt(args[0]);
-        Filepath = args[1];
-        }
+    {
+
+//        if(args[0] !=null && args[1]!=null) {
+//        port = Integer.parseInt(args[0]);
+//        Filepath = args[1];
+//        }
         ServerSocketFactory factory = ServerSocketFactory.getDefault();
 
         try(ServerSocket server = factory.createServerSocket(port))

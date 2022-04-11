@@ -18,32 +18,7 @@ public class DictionaryClient {
     public int OpIndex=0;
     public DictionaryClient() {
 
-//        button1.addActionListener(new ActionListener() {
-//           @Override
-//            public void actionPerformed(ActionEvent e) {
-//                String Op= (String) OPlist.getSelectedItem();
-//                if(Op=="Search a word"){
-//                    OpIndex=0;
-//                    SearchOrRemoveDialog D1=new SearchOrRemoveDialog(OpIndex);
-//
-//                } else if(Op=="Remove a word"){
-//                    OpIndex=1;
-//                    SearchOrRemoveDialog D2=new SearchOrRemoveDialog(OpIndex);
-//
-//                }
-//                else if(Op=="Update a word"){
-//                    OpIndex=2;
-//                    UpdateOrAddDialog D3=new UpdateOrAddDialog(OpIndex);
-//
-//                }
-//                else if(Op=="Add a word"){
-//                    OpIndex=3;
-//                    UpdateOrAddDialog D4=new UpdateOrAddDialog(OpIndex);
-//
-//                }
-//
-//            }
-//        });
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -93,10 +68,10 @@ public class DictionaryClient {
 //    }
 
     public static void main(String[] args) {
-        if(args[0]!=null && args[1]!=null){
-            Ip = args[0];
-            Port = Integer.parseInt(args[1]);
-        }
+//        if(args[0]!=null && args[1]!=null){
+//            Ip = args[0];
+//            Port = Integer.parseInt(args[1]);
+//        }
 
         JFrame frame = new JFrame("DictionaryClient");
         frame.setContentPane(new DictionaryClient().TestForm);
