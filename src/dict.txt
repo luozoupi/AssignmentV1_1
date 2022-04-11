@@ -1,2 +1,0 @@
-Cat 1.An animal. 2.It meows.
-Dog 1.An animal. 2.It barks.

@@ -95,6 +95,7 @@ public class SearchWord {
     }
     public static String RemoveAWord(String wd) {
         String str=null;
+        int flag = 0;
         try {
 
             String encoding = "UTF-8";
@@ -108,34 +109,37 @@ public class SearchWord {
                 BufferedReader bufferedReader = new BufferedReader(read);
                 String rl = null;
                 String wl="";
-                boolean flag = false;
+
 
                 while((rl = bufferedReader.readLine())!=null) { //To find if the word already exists to be deleted
                     if(rl.indexOf(wd)!=-1) {
                         System.out.println("Congratulations! You can delete the existing word!\r\n");
                         //String Meaning = rl.substring(wd.length());
                         //System.out.println("Its meaning includes:"+Meaning);
-                        flag = true;
-
+                        flag = 1;
+                        System.out.println("flag1: "+flag);
                     }else {
                         wl=wl+rl+"\r\n";
                     }
 
 
                 }read.close();
+                System.out.println("flag2: "+flag);
+                if(flag == 1){
+                    str="Successfully removed the word " +wd+ ", you can check the dictionary.";
+                    //return str;
+                }
+                else {
+                    str="Sorry, the word doesn't exist so can't be deleted!";
+
+                }
                 FileWriter out =new FileWriter(file,false);
-                System.out.println(wl);
+                //System.out.println(wl);
                 out.write(wl);
                 out.flush();
                 out.close();
 
-                str="Successfully removed the word " + wd+ ", you can check the dictionary.";
 
-                if(!flag) {
-                    System.out.println("Sorry, the word doesn't exist so can't be deleted!");
-                    str="Sorry, the word doesn't exist so can't be deleted!";
-                    return str;
-                }
             }return str;
 
         }
