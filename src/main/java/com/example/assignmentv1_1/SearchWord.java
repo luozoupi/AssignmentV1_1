@@ -94,10 +94,10 @@ public class SearchWord {
 
     }
     public static String RemoveAWord(String wd) {
-        String str=null;
-        int flag = 0;
-        try {
 
+        boolean flag = false;
+        try {
+            String str=null;
             String encoding = "UTF-8";
 
             File file=new File(filepath);
@@ -116,7 +116,7 @@ public class SearchWord {
                         System.out.println("Congratulations! You can delete the existing word!\r\n");
                         //String Meaning = rl.substring(wd.length());
                         //System.out.println("Its meaning includes:"+Meaning);
-                        flag = 1;
+                        flag = true;
                         System.out.println("flag1: "+flag);
                     }else {
                         wl=wl+rl+"\r\n";
@@ -124,23 +124,17 @@ public class SearchWord {
 
 
                 }read.close();
-                System.out.println("flag2: "+flag);
-                if(flag == 1){
-                    str="Successfully removed the word " +wd+ ", you can check the dictionary.";
-                    //return str;
-                }
-                else {
-                    str="Sorry, the word doesn't exist so can't be deleted!";
 
-                }
                 FileWriter out =new FileWriter(file,false);
-                //System.out.println(wl);
                 out.write(wl);
                 out.flush();
                 out.close();
 
-
-            }return str;
+                if(flag) str = "Successfully removed the word " + wd + ", you can check the dictionary.";
+                else {
+                    str="Sorry, the word doesn't exist so can't be deleted!";
+                }return str;
+            }
 
         }
         catch(Exception e) {
@@ -148,7 +142,9 @@ public class SearchWord {
             e.printStackTrace();
             return ("Your operation goes wrong!");
         }
-    }
+    return "Weird, the program is not running";}
+
+
     public static String UpdateAWord(String wd, String NewMeaning) {
 
         try { String str=null;
