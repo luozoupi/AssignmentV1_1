@@ -18,10 +18,10 @@ public class DictionaryServer {
     public static void main(String[] args)
     {
 
-//        if(args[0] !=null && args[1]!=null) {
-//        port = Integer.parseInt(args[0]);
-//        Filepath = args[1];
-//        }
+        if(args[0] !=null && args[1]!=null) {
+        port = Integer.parseInt(args[0]);
+        Filepath = args[1];
+        }
         ServerSocketFactory factory = ServerSocketFactory.getDefault();
 
         try(ServerSocket server = factory.createServerSocket(port))
@@ -66,14 +66,13 @@ public class DictionaryServer {
             if(OP=='0'){//Search operation requested
 
                 String ToSearch = Operation.substring(Operation.indexOf("OP")+5);
-                //SearchWord s1= new SearchWord();
                 System.out.println("You are now searching for: "+ToSearch);
                 outcome = SearchWord.LookItUp(ToSearch);
 
             }else if(OP=='1'){//Remove operation requested
 
                 String ToRemove = Operation.substring(Operation.indexOf("OP")+5);
-                SearchWord.RemoveAWord(ToRemove);
+                System.out.println("You are now removing: "+ToRemove);
                 outcome = SearchWord.RemoveAWord(ToRemove);
 
             }else if(OP=='2'){//Operation Update requested
@@ -87,8 +86,7 @@ public class DictionaryServer {
                 outcome = SearchWord.UpdateAWord(ToUpdate,NewMeaning);
 
             }else if(OP=='3'){//Add operation requested
-
-                char div=Operation.charAt(Operation.indexOf("-")+2);
+                int div=Operation.indexOf("-");
                 String ToAdd=Operation.substring(Operation.indexOf("OP")+5,div);//Sample: OP3: Poop-Number2
                 String NewMeaning=Operation.substring(div+1);
                 outcome = SearchWord.AddAWord(ToAdd,NewMeaning);

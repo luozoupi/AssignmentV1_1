@@ -68,10 +68,10 @@ public class DictionaryClient {
 //    }
 
     public static void main(String[] args) {
-//        if(args[0]!=null && args[1]!=null){
-//            Ip = args[0];
-//            Port = Integer.parseInt(args[1]);
-//        }
+        if(args[0]!=null && args[1]!=null){
+            Ip = args[0];
+            Port = Integer.parseInt(args[1]);
+        }
 
         JFrame frame = new JFrame("DictionaryClient");
         frame.setContentPane(new DictionaryClient().TestForm);
