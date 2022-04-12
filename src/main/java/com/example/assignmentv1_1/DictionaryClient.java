@@ -68,7 +68,7 @@ public class DictionaryClient {
 //    }
 
     public static void main(String[] args) {
-        if(args[0]!=null && args[1]!=null){
+        if(args.length==2){
             Ip = args[0];
             Port = Integer.parseInt(args[1]);
         }
